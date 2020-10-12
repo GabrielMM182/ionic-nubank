@@ -1,27 +1,149 @@
-#container {
-  text-align: center;
+ion-header {
+  ion-toolbar {
+    --min-height: 100px;  //aumnetar o tamanho do header para nao bugar img 
+    
+    ion-title {
+      align-items: flex-end;
+      img {
+        width: 54px;
+        vertical-align: middle;
+        margin-right: 4px;
+      }
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+      span { 
+        font-size: 18px;
+      }
+
+      ion-button {
+        display: block;
+      }
+    }
+  }
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+ion-content {
+  .background {
+    opacity: 0;
+
+    .bank-information {
+      .qrcode {
+        width: 100px;
+        margin: 16px auto;
+        display: block;
+      }
+
+      span {
+        margin: 5px 0;
+        font-size: 14px;
+        display: block;
+      }
+    }
+
+    ion-list {
+      margin-top: 32px;
+      background: transparent; // deixa o fundo transparente
+
+      ion-item {
+        color: #fff;
+        --background: transparent; // deixa o fundo transparente
+        --detail-icon-opacity: 1; // aumenta a opacidade da setinha
+
+        &:first-of-type {
+          border-top: 0.55px solid rgba(255, 255, 255, 0.7); // adiciona uma linha no primeiro de cima
+        }
+      }
+    }
+
+    .logout {
+      margin-top: 32px;
+      margin-bottom: 100px;
+    }
+
+  }
+
+  .blocks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    z-index: 999;
+
+    &.fixed {
+      position: fixed; 
+      top: 110px;
+      overflow-y: hidden; // vai anular o scroll acima 
+    }
+
+    ion-card {
+      .cash {
+        span {
+          &.value {
+            font-size: 30px;
+            display: block;
+          }
+
+          &.black {
+            color: #000;
+          }
+
+          &.blue {
+            color: #0ab9cd;
+          }
+
+          &.green {
+            color: #94c22b;
+          }
+        }
+      }
+
+      .footer {
+        background: #f4f5f8;
+      }
+
+      .title {
+        font-size: 20px;
+      }
+
+      .gift {
+        font-size: 30px;
+      }
+    }
+  }
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+ion-footer {
+  &.hidden { //quando receber a classe hidden la definido no html
 
-  color: #8c8c8c;
+    height: 0;
 
-  margin: 0;
+    ion-slides {
+      opacity: 0;
+    }
+  }
+  ion-slide {
+    .container {
+      width: 100%;
+      height: 100px;
+      background: var(--ion-color-primary-tint); // puxando a cor definida no variables.scss
+      padding: 10px;
+      margin: 0 5px;
+      display: flex; //separar o icone emcima e o txt embaixo
+      flex-direction: column; // separar o icone emcima e o txt embaixo
+      justify-content: space-between; // dar o espaço entre icone e txt 
+
+      ion-icon {
+        font-size: 24px;
+      }
+
+      span {
+        font-size: 16px;
+      }
+    }
+  }
 }
 
-#container a {
-  text-decoration: none;
+.opacity-transition {
+  transition: opacity 0.3s; // faz a transição de da rum tempo para ficar mais suave 
 }
